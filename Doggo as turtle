@@ -1,0 +1,80 @@
+import turtle
+
+def main():
+
+    
+    # Input
+    # This will be used to determine the number of sides in the first polygon drawn
+    first_poly = int(input('Please enter a positive integer that is 3 or greater: '))
+
+    # This will be used to determine the number of sides in the second polygon drawn
+    secon_poly = int(input('Please enter another positive integer that is 3 or greater: '))
+
+    # This will be used to determine the number of sides in the third polygon drawn
+    third_poly = int(input('Please enter another positive integer that is 3 or greater: '))
+
+    # This will be used to determine the number of circles drawn in the first set of concentric circles
+    num_circle1 = int(input('Please enter a positive integer: '))
+
+    # This will be used to determine the number of circles drawn in the second set of concentric circles
+    num_circle2 = int(input('Please enter another positive integer: '))
+
+    # This will be used to adjust the size or scale of all polygons and sets of concentric circles
+    all_size = int(input('Finally, please enter a positive integer between 50 and 200: '))
+
+    doggo = turtle.Turtle() 
+    doggo.shape('turtle') # Changing the shape of the turtle
+    doggo.fillcolor('red') # Filling red for the first polygon
+    doggo.begin_fill() 
+    doggo.pencolor('Violet') # Using violet as the pencolor for the first polygon
+    draw_polygon(doggo, first_poly, all_size) # Calling draw_polygon function 
+    doggo.end_fill()  
+    doggo.pu() 
+
+    doggo.goto(-100,100) 
+    doggo.pd() 
+    doggo.fillcolor('blue') 
+    doggo.begin_fill() 
+    doggo.pencolor('green') 
+    draw_polygon(doggo, secon_poly, all_size+20) 
+    doggo.end_fill() 
+    doggo.pu()
+
+    doggo.goto(-100,-100)
+    doggo.pd()
+    doggo.fillcolor('gold')
+    doggo.begin_fill()
+    doggo.pencolor('black')
+    draw_polygon(doggo, third_poly, all_size+40) 
+    doggo.end_fill()
+    doggo.pu()
+
+    doggo.goto(0,-200) 
+    doggo.pd()
+    draw_concentric_circles(doggo, num_circle1, all_size) # Calling the draw_concentric_circles to start drawing circles
+    doggo.pu()
+
+    doggo.goto(100,96)
+    doggo.pd()
+    draw_concentric_circles(doggo, num_circle2, all_size) 
+
+    doggo.pu()
+    doggo.home()
+    
+def draw_polygon(our_turtle, num_sides, side_length):
+    for i in range(num_sides):
+        our_turtle.forward(side_length) # Draw the first side of the polygon
+        our_turtle.left(180 - ((180/num_sides)*(num_sides - 2))) # Move the angles according to the side of the polygon
+
+def draw_concentric_circles(our_turtle, num_circles, starting_radius):
+    for j in range(num_circles):
+        our_turtle.circle(starting_radius + j*20) # Drawing the circle with starting_radius and go up by 20 for each new circle
+        our_turtle.pu() 
+        our_turtle.right(90) # Turn right to the south 
+        our_turtle.forward(20) # The gap between circle is 20 
+        our_turtle.left(90) # Turn turtle to the right direction for drawing 
+        our_turtle.pd() 
+        
+
+main()
+
