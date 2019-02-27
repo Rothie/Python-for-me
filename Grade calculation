@@ -1,0 +1,24 @@
+def main():
+    
+    hw_score = float(input('Enter your current grade (out of 100) on homework quizzes: ')) # User input the homework score
+    lab_score = float(input('Enter your current grade (out of 100) on lab assignments: ')) # User input the lab score
+    pa_score = float(input('Enter your current grade (out of 100) on programming assignments: ')) # User input programming assignment score
+    target_grade = float(input('Enter your target grade (out of 100): ')) # User input the target grade for the course
+    print('Calculating...')
+    print('Your current grade (out of 55) is: ', end="") # Printing the output for current grade 
+    current_grade = calculate_current_grade(hw_score, lab_score, pa_score) # Calling the current grade function 
+    print(current_grade)
+    calculate_exam_score(current_grade, target_grade) # Calling the exam score function
+    goal_grade = ((target_grade - current_grade)*100)/45
+    print('To get a', target_grade, '(out of 100) in the course, you must score an average of', goal_grade, 'percent across the two exams.')
+    
+def calculate_current_grade(hw_score, lab_score, pa_score): 
+    current_grade = 0.15*hw_score + 0.1*lab_score + 0.3*pa_score # Calculate current grade based on weighted percentage 
+    return current_grade # Save the current_grade variable to the main function 
+    
+def calculate_exam_score(current_grade, target_grade): 
+    goal_grade = ((target_grade - current_grade)*100)/45 # Calculate the goal grade for the average of the two exams
+    return goal_grade # Save the goal_grade variable to the main function
+    
+    
+main() # Calling the main function 
