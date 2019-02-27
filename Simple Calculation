@@ -1,0 +1,58 @@
+def main():
+    print("This program will test two functions")
+    print("Testing find_area_trapezoid...")
+    # first test case
+    base1 = 4
+    base2 = 5
+    height = 8
+    area = find_area_trapezoid(base1, base2, height)
+    print("The area of a trapezoid with bases", base1, "and", base2, "and height", height, "has an area of", area)
+
+    # second test case
+    base3 = 2
+    base4 = 7
+    height2 = 9
+    area1 = find_area_trapezoid(base3, base4, height2)
+    print("The area of a trapezoid with bases", base3, "and", base4, "and height", height2, "has an area of", area1)
+
+    # third test case
+    base5 = 5
+    base6 = 12
+    height3 = 7
+    area2 = find_area_trapezoid(base5, base6, height3)
+    print("The area of a trapezoid with bases", base5, "and", base6, "and height", height3, "has an area of", area2)
+
+    print("Testing find_area_rectangle...")
+
+    # first test case for rectangle
+    width_rec = 12
+    length_rec = 2
+    area3 = find_area_rectangle(width_rec, length_rec)
+    print("The area of a rectangle with width", width_rec, "and length", length_rec, "has an area of", area3)
+
+    # second test case for rectangle
+    width_rec1 = 24
+    length_rec1 = 3
+    area4 = find_area_rectangle(width_rec1, length_rec1)
+    print("The area of a rectangle with width", width_rec1, "and length", length_rec1, "has an area of", area4)
+    
+    
+# This function calculates and returns the area of a trapezoid
+# parameter: base1, the length of the top of the trapezoid
+# parameter: base2, the length of the bottom
+# parameter: height, the height of the trapezoid
+# Notes: See this website for a picture  http://math.com/tables/geometry/areas.htm
+
+def find_area_trapezoid(base1, base2, height):
+    area = height / 2.0 * (base1 + base2)
+    return area
+
+# This function calculates and returns the area of a rectangle
+# parameter: width, the width of the rectangle
+# parameter: length, the length of the rectangle
+
+def find_area_rectangle(width, length):
+    area = width * length
+    return area 
+
+main() # calling the main function 
