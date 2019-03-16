@@ -1,0 +1,55 @@
+# Project: Mega Millions Pick'Em for You
+# Goal: This program will pick the numbers for the gamblers so they don't have
+#       to think about it.
+# Author: Rothvitou Long
+# Status: In progress/incomplete
+
+import random
+
+def main():
+
+    print('Welcome to the Mega Millions!')
+
+    keep_running = True
+    while keep_running:
+        
+        print('Do you want me to pick the lucky numbers for you?')
+        print('Please type Exit to quit the program.\nThank you for playing!')
+        answer = input('Please enter Yes, No or Exit: ')
+        if answer == 'Yes': 
+            pick_random()
+        elif answer == 'No':
+            user_pick()
+        elif answer == 'Exit':
+            exit()
+        else:
+            answer = print('Good Bye!')
+        
+def pick_random():
+    random_pick = []
+    for i in range(0,5):
+        number = random.randrange(1,71,1)
+        random_pick.append(number)
+    random_num = "  ".join(repr(e) for e in random_pick)
+    print('Your lucky numbers are: ', random_num)
+        
+
+def user_pick():
+    while True:
+        try:
+            manual_pick = list(input('Please enter your bets:'))
+            if len(manual_pick) > 14:
+                print('Please enter only up to 99 for each number.')
+            else:
+                break
+                
+        except:
+            print('This is not a valid option')
+        
+        
+
+    print('You have picked: ', new_list_pick)
+    
+
+main()
+
